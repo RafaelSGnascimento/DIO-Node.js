@@ -1,19 +1,7 @@
-const player1 = {
-    NOME: "Mario",
-    VELOCIDADE: 4,
-    MANOBRABILIDADE: 3,
-    PODER: 3,
-    PONTOS: 0,
-};
+const player1 = require("./playerList/playerMario");
+const player2 = require("./playerList/playerLuig");
 
-const player2 = {
-    NOME: "lUIG",
-    VELOCIDADE: 3,
-    MANOBRABILIDADE: 4,
-    PODER: 4,
-    PONTOS: 0,
-};
-
+//Informa quem e o resultado do dado a cada rodada.
 async function logRollResult(characterName, block, diceResult, attribute) {
     console.log(`${characterName} rolou um dado🎲 de ${block} ${diceResult} + ${attribute} = ${diceResult + attribute} !`);
 }
@@ -54,7 +42,7 @@ async function declareWinner(character1, character2) {
 
 async function playRaceEngine(character1, character2) {
     for(let round = 1; round <= 5; round++){
-        console.log(`🏁rodada ${round}!`);
+        console.log(`🏁rodada ${round}/5 !`);
 
         let block = await getRandomBlock();
         console.log(`E sua pista sera...${block}!`);
@@ -144,11 +132,11 @@ async function rollDice(){
 
 //Função MAIN.
 (async function main(params) {
-    console.log(`🏁❕ corrida entre:${player1.NOME} e ${player2.NOME} esta começando!!!`);
+console.log(`🏁❕ corrida entre:${player1.NOME} e ${player2.NOME} esta começando!!!`);
 
-    //Chama uma função dentro de outra função
-    //await exique que o codigo espere sua execução para assim dar continuidade.
-    await playRaceEngine(player1, player2);
+//Chama uma função dentro de outra função
+//await exique que o codigo espere sua execução para assim dar continuidade.
+await playRaceEngine(player1, player2);
 
-    declareWinner(player1,player2);
+declareWinner(player1,player2);
 })();
