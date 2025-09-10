@@ -6,11 +6,16 @@ const myWhishList = [];
 
 console.log("Welcome to the your Shopee Cart!")
 
-const item1 = await createItem("ferrari HotWheels", 39.99, 12);
-const item2 = await createItem("lamborghini HotWheels", 39.99, 1);
+const item1 = await createItem("ferrari HotWheels", 10, 10, 10);
+const item2 = await createItem("lamborghini HotWheels", 10, 10, 10);
 
 await cartServices.addItem(myCart, item1);
 await cartServices.addItem(myCart, item2);
+
+await cartServices.removeItem(myCart, item1 );
+await cartServices.removeItem(myCart, item1 );
+
+await cartServices.addItemQuantity(item2);
 
 await cartServices.displayCart(myCart);
 
