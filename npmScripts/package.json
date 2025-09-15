@@ -1,0 +1,18 @@
+{
+  "name": "npmscripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "iniciar": "node src/index.js",
+    "start:watch": "node --watch src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "d": "^1.0.2"
+  }
+}
